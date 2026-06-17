@@ -5,11 +5,24 @@ import { ChatInterface } from "./components/ChatInterface";
 const App: React.FC = () => {
   return (
     <>
-      {/* App-level header */}
       <header className="app-header">
         <div className="app-header-inner">
           <div className="app-brand">
-            <span className="app-brand-icon">🤖</span>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--accent-cyan)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ filter: "drop-shadow(0 0 8px rgba(56,189,248,0.4))" }}
+            >
+              <ellipse cx="12" cy="5" rx="9" ry="3" />
+              <path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+              <path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6" />
+            </svg>
             <div>
               <span className="app-brand-name">Autonomous Data Supervisor</span>
               <span className="app-brand-tagline">

@@ -1,4 +1,4 @@
-# 🤖 Autonomous Data Engineering & Anomaly Supervisor
+# Autonomous Data Engineering & Anomaly Supervisor
 
 <div align="center">
 
@@ -17,21 +17,21 @@
 
 ---
 
-## ✨ What This Does
+## What This Does
 
 Ask a question like *"Show me revenue anomalies across regions for the last 6 months"* and the system autonomously:
 
-1. **🧠 Translates** your question into a secure SQL SELECT query using Gemini/GPT
-2. **🔄 Self-corrects** if the SQL fails (up to 3 retries with error context)
-3. **📊 Executes** the query safely against the database
-4. **🔍 Detects anomalies** using Scikit-learn Isolation Forest
-5. **📈 Generates** an interactive Plotly dashboard highlighting anomalous data points
+1. **Translates** your question into a secure SQL SELECT query using Gemini/GPT
+2. **Self-corrects** if the SQL fails (up to 3 retries with error context)
+3. **Executes** the query safely against the database
+4. **Detects anomalies** using Scikit-learn Isolation Forest
+5. **Generates** an interactive Plotly dashboard highlighting anomalous data points
 
 No SQL knowledge required. Built for non-technical stakeholders.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -89,7 +89,7 @@ Raw DataFrames live in a **process-scoped `DataFrameStore`** (UUID-keyed in-memo
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -139,7 +139,7 @@ Navigate to **http://localhost:5173** and start asking questions!
 
 ---
 
-## 🗄️ Database
+## Database
 
 The app ships with a **pre-seeded SQLite demo database** containing:
 
@@ -158,7 +158,7 @@ DATABASE_URL=postgresql+asyncpg://user:password@host:5432/mydb
 
 ---
 
-## 📡 API Reference
+## API Reference
 
 All endpoints require `X-API-Key: <your_api_secret_key>` header (except `/api/health` and `/api/examples`).
 
@@ -199,7 +199,7 @@ Interactive docs at **http://localhost:8000/docs** (development mode only).
 
 ---
 
-## 🔒 Security
+## Security
 
 | Threat | Mitigation |
 |--------|------------|
@@ -217,7 +217,7 @@ Interactive docs at **http://localhost:8000/docs** (development mode only).
 
 ---
 
-## 🧪 Running Tests
+## Running Tests
 
 ```bash
 cd backend
@@ -232,7 +232,7 @@ The test suite covers:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 autonomous-data-supervisor/
@@ -269,7 +269,7 @@ autonomous-data-supervisor/
 
 ---
 
-## 🔧 Configuration
+## Configuration
 
 | Variable | Default | Description |
 |----------|---------|-------------|
@@ -284,7 +284,7 @@ autonomous-data-supervisor/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Orchestration**: LangGraph (ReAct state graph with retry loops)
 - **LLM**: Google Gemini 1.5 Flash via LangChain
@@ -297,6 +297,6 @@ autonomous-data-supervisor/
 
 ---
 
-## 📝 License
+## License
 
 MIT © 2024 Siddarth

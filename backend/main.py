@@ -45,7 +45,7 @@ limiter = Limiter(key_func=get_remote_address)
 async def lifespan(app: FastAPI):
     config.validate()
     seed_database()
-    logger.info("🚀 Autonomous Data Supervisor is ready.")
+    logger.info("Autonomous Data Supervisor is ready.")
     yield
     logger.info("Shutting down.")
 

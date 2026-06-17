@@ -14,25 +14,47 @@ export const AnomalyBadge: React.FC<AnomalyBadgeProps> = ({ count, total }) => {
 
   const config = {
     clean: {
-      icon: "✓",
+      icon: (
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: 4 }}>
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+      ),
       label: "No Anomalies",
       className: "badge badge-green",
       glow: "rgba(52, 211, 153, 0.15)",
     },
     low: {
-      icon: "⚠",
+      icon: (
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: 4 }}>
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+          <line x1="12" y1="9" x2="12" y2="13" />
+          <line x1="12" y1="17" x2="12.01" y2="17" />
+        </svg>
+      ),
       label: `${count} Anomaly`,
       className: "badge badge-cyan",
       glow: "rgba(56, 189, 248, 0.15)",
     },
     medium: {
-      icon: "⚠",
+      icon: (
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: 4 }}>
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+          <line x1="12" y1="9" x2="12" y2="13" />
+          <line x1="12" y1="17" x2="12.01" y2="17" />
+        </svg>
+      ),
       label: `${count} Anomalies`,
       className: "badge badge-orange",
       glow: "rgba(249, 115, 22, 0.15)",
     },
     high: {
-      icon: "🚨",
+      icon: (
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: 4 }}>
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+          <line x1="12" y1="9" x2="12" y2="13" />
+          <line x1="12" y1="17" x2="12.01" y2="17" />
+        </svg>
+      ),
       label: `${count} Anomalies`,
       className: "badge badge-red",
       glow: "rgba(248, 113, 113, 0.15)",

@@ -161,7 +161,7 @@ def _generate_sensor_readings() -> list[dict]:
 
 def seed_database() -> None:
     """Create and populate tables. Safe to call multiple times (drops & recreates)."""
-    logger.info("🌱 Seeding demo database...")
+    logger.info("Seeding demo database...")
 
     with sync_engine.connect() as conn:
         _create_tables(conn)
@@ -175,7 +175,7 @@ def seed_database() -> None:
             sales_data,
         )
         conn.commit()
-        logger.info("  ✓ sales: %d rows inserted", len(sales_data))
+        logger.info("  - sales: %d rows inserted", len(sales_data))
 
         sensor_data = _generate_sensor_readings()
         conn.execute(
@@ -186,9 +186,9 @@ def seed_database() -> None:
             sensor_data,
         )
         conn.commit()
-        logger.info("  ✓ sensor_readings: %d rows inserted", len(sensor_data))
+        logger.info("  - sensor_readings: %d rows inserted", len(sensor_data))
 
-    logger.info("✅ Database seeding complete.")
+    logger.info("Database seeding complete.")
 
 
 if __name__ == "__main__":

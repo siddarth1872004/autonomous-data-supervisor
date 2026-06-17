@@ -47,7 +47,7 @@ def _resolve_api_key() -> str:
     # Dev-only ephemeral key — NOT suitable for horizontal scaling
     ephemeral = secrets.token_urlsafe(32)
     logger.warning(
-        "⚠️  API_SECRET_KEY not set. Generated ephemeral key (dev only): %s\n"
+        "WARNING: API_SECRET_KEY not set. Generated ephemeral key (dev only): %s\n"
         "   This key is instance-isolated and resets on every restart.",
         ephemeral,
     )

@@ -5,7 +5,7 @@ export type StepStatus = "pending" | "active" | "done" | "error" | "skipped";
 export interface AgentStep {
   id: string;
   label: string;
-  icon: string;
+  icon: React.ReactNode;
   description: string;
   status: StepStatus;
 }

@@ -13,10 +13,52 @@ interface Message {
 }
 
 const INITIAL_STEPS: AgentStep[] = [
-  { id: "sql",  label: "Text-to-SQL",  icon: "🧠", description: "Translating your question into SQL...", status: "pending" },
-  { id: "exec", label: "SQL Executor", icon: "⚡", description: "Executing query safely...", status: "pending" },
-  { id: "ml",   label: "ML Analysis",  icon: "🔍", description: "Running anomaly detection...", status: "pending" },
-  { id: "viz",  label: "Visualization", icon: "📈", description: "Generating dashboard...", status: "pending" },
+  {
+    id: "sql",
+    label: "Text-to-SQL",
+    icon: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    ),
+    description: "Translating your question into SQL...",
+    status: "pending",
+  },
+  {
+    id: "exec",
+    label: "SQL Executor",
+    icon: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="5 3 19 12 5 21 5 3" />
+      </svg>
+    ),
+    description: "Executing query safely...",
+    status: "pending",
+  },
+  {
+    id: "ml",
+    label: "ML Analysis",
+    icon: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+    ),
+    description: "Running anomaly detection...",
+    status: "pending",
+  },
+  {
+    id: "viz",
+    label: "Visualization",
+    icon: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 20V10M12 20V4M6 20v-6" />
+      </svg>
+    ),
+    description: "Generating dashboard...",
+    status: "pending",
+  },
 ];
 
 function updateStep(steps: AgentStep[], id: string, status: StepStatus): AgentStep[] {
@@ -135,7 +177,10 @@ export const ChatInterface: React.FC = () => {
         <div className="chat-header">
           <div className="chat-header-left">
             <div className="chat-logo">
-              <span>🤖</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M12 2v9M8 5h8" />
+              </svg>
             </div>
             <div>
               <h2 className="chat-title">Data Supervisor</h2>
@@ -154,7 +199,11 @@ export const ChatInterface: React.FC = () => {
         <div className="messages-area" id="messages-area">
           {messages.length === 0 && (
             <div className="empty-state">
-              <div className="empty-icon">💬</div>
+              <div className="empty-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
               <h3 className="empty-title">Ask anything about your data</h3>
               <p className="empty-desc">
                 The agent will translate your question into SQL, detect anomalies with ML, and build an interactive dashboard — automatically.
@@ -186,7 +235,23 @@ export const ChatInterface: React.FC = () => {
               className={`message message-${msg.type} animate-fade-in`}
             >
               <div className="message-avatar">
-                {msg.type === "user" ? "👤" : msg.type === "error" ? "❌" : "🤖"}
+                {msg.type === "user" ? (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                ) : msg.type === "error" ? (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="15" y1="9" x2="9" y2="15" />
+                    <line x1="9" y1="9" x2="15" y2="15" />
+                  </svg>
+                ) : (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M12 2v9M8 5h8" />
+                  </svg>
+                )}
               </div>
               <div className="message-body">
                 <div className="message-meta">
@@ -220,7 +285,12 @@ export const ChatInterface: React.FC = () => {
 
           {isLoading && (
             <div className="message message-agent animate-fade-in">
-              <div className="message-avatar">🤖</div>
+              <div className="message-avatar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M12 2v9M8 5h8" />
+                </svg>
+              </div>
               <div className="message-body">
                 <div className="message-meta">
                   <span className="message-role">Data Supervisor</span>
@@ -279,7 +349,13 @@ export const ChatInterface: React.FC = () => {
         ) : (
           <div className="glass-card dashboard-empty">
             <div className="dashboard-empty-content">
-              <span className="dashboard-empty-icon">📊</span>
+              <span className="dashboard-empty-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10" />
+                  <line x1="12" y1="20" x2="12" y2="4" />
+                  <line x1="6" y1="20" x2="6" y2="14" />
+                </svg>
+              </span>
               <h3>Dashboard</h3>
               <p>Ask a question to see your interactive analytics dashboard here.</p>
             </div>

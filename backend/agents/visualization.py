@@ -107,7 +107,7 @@ def _time_series_chart(
                 x=anomaly_df[date_col],
                 y=anomaly_df[value_cols[0]],
                 mode="markers",
-                name="⚠ Anomaly",
+                name="Anomaly",
                 marker=dict(
                     color=_ANOMALY_COLOR,
                     size=10,
@@ -118,7 +118,7 @@ def _time_series_chart(
             ))
 
     fig.update_layout(
-        title=dict(text="📈 Time Series Analysis", font=dict(size=16, color="#e2e8f0")),
+        title=dict(text="Time Series Analysis", font=dict(size=16, color="#e2e8f0")),
         **_LAYOUT_DEFAULTS,
     )
     return fig
@@ -155,7 +155,7 @@ def _bar_chart(
     ))
 
     fig.update_layout(
-        title=dict(text="📊 Category Analysis", font=dict(size=16, color="#e2e8f0")),
+        title=dict(text="Category Analysis", font=dict(size=16, color="#e2e8f0")),
         **_LAYOUT_DEFAULTS,
         bargap=0.25,
     )
@@ -183,7 +183,7 @@ def _scatter_chart(
             x=anomaly_df[x_col],
             y=anomaly_df[y_col],
             mode="markers",
-            name="⚠ Anomaly",
+            name="Anomaly",
             marker=dict(
                 color=_ANOMALY_COLOR, size=11,
                 symbol="x", line=dict(width=2),
@@ -192,7 +192,7 @@ def _scatter_chart(
         ))
 
     fig.update_layout(
-        title=dict(text="🔍 Anomaly Scatter Plot", font=dict(size=16, color="#e2e8f0")),
+        title=dict(text="Anomaly Scatter Plot", font=dict(size=16, color="#e2e8f0")),
         xaxis_title=x_col,
         yaxis_title=y_col,
         **_LAYOUT_DEFAULTS,
@@ -222,7 +222,7 @@ def _table_figure(df: pd.DataFrame) -> go.Figure:
         )]
     )
     fig.update_layout(
-        title=dict(text="📋 Query Results", font=dict(size=16, color="#e2e8f0")),
+        title=dict(text="Query Results", font=dict(size=16, color="#e2e8f0")),
         paper_bgcolor=_BG,
         font=_FONT,
         margin=dict(l=20, r=20, t=60, b=20),
