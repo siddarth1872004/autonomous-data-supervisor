@@ -24,7 +24,7 @@ const App: React.FC = () => {
               <path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6" />
             </svg>
             <div>
-              <span className="app-brand-name">Autonomous Data Supervisor</span>
+              <span className="app-brand-name">DataVigil-AI</span>
               <span className="app-brand-tagline">
                 LangGraph · Text-to-SQL · Isolation Forest · Plotly
               </span>
@@ -42,7 +42,7 @@ const App: React.FC = () => {
               API Docs ↗
             </a>
             <a
-              href="https://github.com/siddarth1872004/autonomous-data-supervisor"
+              href="https://github.com/siddarth1872004/DataVigil-AI"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-ghost"
