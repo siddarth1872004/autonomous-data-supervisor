@@ -1,4 +1,4 @@
-# DataVigil-AI: Autonomous Data Engineering & Anomaly Supervisor
+# DataVigil: Autonomous Data Engineering & Anomaly Supervisor
 
 <div align="center">
 
@@ -100,8 +100,8 @@ Raw DataFrames live in a **process-scoped `DataFrameStore`** (UUID-keyed in-memo
 ### 1. Clone and configure
 
 ```bash
-git clone https://github.com/siddarth1872004/DataVigil-AI.git
-cd DataVigil-AI
+git clone https://github.com/siddarth1872004/DataVigil.git
+cd DataVigil
 
 cp .env.example .env
 # Edit .env and set your GOOGLE_API_KEY and API_SECRET_KEY
