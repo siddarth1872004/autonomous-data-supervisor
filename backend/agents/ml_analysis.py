@@ -155,7 +155,7 @@ def ml_analysis_node(state: AgentState) -> dict:
         logger.info("[ml_analysis] Too few rows (%d) for IsolationForest; skipping.", len(df))
         df["_is_anomaly"] = False
         df["_anomaly_score"] = 0.0
-        store._store[df_key] = df  # Update in-place
+        store.update(df_key, df)
         return {
             "anomaly_count": 0,
             "anomaly_indices": [],
@@ -166,8 +166,8 @@ def ml_analysis_node(state: AgentState) -> dict:
 
     annotated_df = _run_isolation_forest(df)
 
-    # Update the DataFrameStore entry in-place so visualization node gets annotations
-    store._store[df_key] = annotated_df
+    # Update the DataFrameStore entry so the visualization node gets annotations
+    store.update(df_key, annotated_df)
 
     anomaly_indices = annotated_df.index[annotated_df["_is_anomaly"]].tolist()
     summary = _build_anomaly_summary(annotated_df)

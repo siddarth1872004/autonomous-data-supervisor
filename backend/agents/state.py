@@ -65,6 +65,12 @@ class DataFrameStore:
                 del self._store[key]
                 logger.debug("DataFrameStore: deleted key=%s", key)
 
+    def update(self, key: str, df: pd.DataFrame) -> None:
+        """Replace the DataFrame stored under an existing key (e.g. after annotating it)."""
+        with self._store_lock:
+            self._store[key] = df
+        logger.debug("DataFrameStore: updated key=%s shape=%s", key, df.shape)
+
 
 # ── Agent State ───────────────────────────────────────────────────────────────
 

@@ -86,11 +86,17 @@ def sql_executor_node(state: AgentState) -> dict:
 
         df = pd.DataFrame(rows, columns=columns)
 
-        # Convert likely date/timestamp columns
+        # Convert likely date/timestamp columns.
+        # pandas >= 2.2 deprecated (and pandas 3.0 removed) errors="ignore" on
+        # pd.to_datetime, so we explicitly catch failures and leave the
+        # original column untouched instead of coercing to NaT.
         for col in df.columns:
             col_lower = col.lower()
             if any(kw in col_lower for kw in ("date", "timestamp", "time", "created", "updated")):
-                df[col] = pd.to_datetime(df[col], errors="ignore")
+                try:
+                    df[col] = pd.to_datetime(df[col])
+                except (ValueError, TypeError):
+                    pass
 
         logger.info("[sql_executor] Returned %d rows, %d columns", len(df), len(df.columns))
 
